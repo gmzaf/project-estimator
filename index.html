@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+  <title>Project Estimator (v11)</title>
+</head>
+<body>
+  
+<div class="container mt-4">
+  <h3 class="text-primary"><i class="fas fa-calculator text-primary"></i> Print Cost Estimator</h3>
+
+<form class="form mt-4">
+
+  <div class="form-group">
+  <label for="measure"> Measurement:</label><br> 
+    <input type="radio" name="measure"  id="radioin" value="in" checked > Inches &nbsp;&nbsp;
+    <input type="radio" name="measure" id="radiomm" value="mm"> Milimeters
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-1">
+      <label for="height">Height:</label>
+      <input type="number" id="height" class="form-control" min="1" step="0.1" placeholder="in">
+    </div>
+
+    <div class="form-group col-md-1">
+      <label for="width">Width:</label>
+      <input type="number" id="width" class="form-control" min="1" step="0.1" placeholder="in">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="substrate">Print Material: </label>
+        <select id="substrate" class="form-control" required>
+          <option value="not-valid">-- Select substrate option --</option>
+          <option value="" disabled>-- ARCHIVAL --</option>
+          <option value="Archival Matte"> Archival - Matte</option>
+          <option value="Archival Matte Light"> Archival - Matte Light</option>
+          <option value="Archival Textured"> Archival - Textured</option>
+          <option value="Archival Textured Light"> Archival - Textured Light</option>
+          <option value="Archival Glossy"> Archival - Glossy</option>
+          <option value="Archival Canvas"> Archival - Canvas</option>
+          <option value="" disabled>-- FINE ART PREMIUM --</option>
+          <option value="Fine Art Matte Fiber">Matte Fiber</option>
+          <option value="Fine Art Metalic">Metalic</option>
+          <option value="Fine Art Canvas">Canvas</option>
+          <option value="" disabled>-- FINE ART --</option>
+          <option value="Fine Art Luster">Luster</option>
+          <option value="Fine Art Glossy">Glossy</option>
+          <option value="Fine Art Matte Coated">Matte Coated</option>
+
+        </select>
+      </div>
+  </div>
+
+  <input type="submit" id="estButton" class="btn btn-primary"  title="Calculate cost and add to estimate" value="Add to Estimate">
+
+</form>
+
+<table id="table" class="table table-striped mt-5">
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Substrate</th>
+      <th>HK$ each</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody id="list"></tbody>
+  </table>
+
+<div id="total" style="text-align:left;"></div>
+
+
+</div>
+
+
+
+
+
+<script src="app11.js"></script>
+</body>
+</html>

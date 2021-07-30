@@ -189,11 +189,11 @@ document.querySelector("form").addEventListener("submit", (e) => {
   if (height === "" || width === "" || substrate === "not-valid") {
     UI.displayAlert("Please enter both dimensions and select substrate", "alert-danger")
   } else if ((paperMax36.includes(substrate) && Math.min(inchHeight, inchWidth) > 36)) {
-    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper (36").`, "alert-danger")
   } else if ((paperMax42.includes(substrate) && Math.min(inchHeight, inchWidth) > 42)) {
-    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")    
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper (42").`, "alert-danger")    
   } else if (Math.min(inchHeight, inchWidth) > 44) {
-    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper (44").`, "alert-danger")
   } else if (Math.max(inchHeight, inchWidth) > 88) {
     UI.displayAlert(`Large prints require a custom quotation. Please contact us for details.`, "alert-danger")
   } else {

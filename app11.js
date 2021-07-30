@@ -179,6 +179,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
   // Validate
   const paperMax36 = ["Archival Matte Light"];
+  const paperMax42 = ["Fine Art Matte Coated", "Fine Art Luster", "Fine Art Glossy"];
   let inchHeight = height;
   let inchWidth = width;
   if (measure === "mm") {
@@ -187,10 +188,12 @@ document.querySelector("form").addEventListener("submit", (e) => {
   }
   if (height === "" || width === "" || substrate === "not-valid") {
     UI.displayAlert("Please enter both dimensions and select substrate", "alert-danger")
-  } else if ((paperMax36.includes(substrate) && Math.min(inchHeight, inchWidth) > 35.5)) {
-    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper (35.5").`, "alert-danger")
-  } else if (Math.min(inchHeight, inchWidth) > 43.5) {
-    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper (43.5").`, "alert-danger")
+  } else if ((paperMax36.includes(substrate) && Math.min(inchHeight, inchWidth) > 36)) {
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")
+  } else if ((paperMax42.includes(substrate) && Math.min(inchHeight, inchWidth) > 42)) {
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")    
+  } else if (Math.min(inchHeight, inchWidth) > 44) {
+    UI.displayAlert(`Your dimension ${Math.min(height, width)}${measure} exceeds the printable area of this paper.`, "alert-danger")
   } else if (Math.max(inchHeight, inchWidth) > 88) {
     UI.displayAlert(`Large prints require a custom quotation. Please contact us for details.`, "alert-danger")
   } else {
